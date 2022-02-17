@@ -26,10 +26,15 @@ TC3
 #    Execute Manual Step    Stop at this time
     Log Element    ${ele}
 
+TC4
+    [Tags]    Test_list_keyword
+    [Documentation]    Test keyword for this test case
+    @{list_test}   Create List    ${student.me.name}    ${student.her.name}  Hieu   Thu   Thao
+    My keyword    ${list_test}
 *** Keywords ***
 My keyword
-    [Arguments]
-    FOR    ${element}    IN    @{LIST}
-        Log    ${element}
+    [Arguments]     ${list_name}
+    FOR    ${name}    IN    @{list_name}
+        Log    Hi ${name}
 
     END

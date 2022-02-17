@@ -1,66 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.9.10 on win32)" generated="20220217 22:40:49.187" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.9.10 on win32)" generated="20220217 23:05:08.877" rpa="false" schemaversion="2">
 <suite id="s1" name="testRb" source="E:\PythonProjects\TestRobot\testRb.robot">
-<test id="s1-t1" name="TC3">
-<kw name="Get File" library="OperatingSystem">
-<var>${file}</var>
-<arg>E:\\PythonProjects\\TestRobot/data/test-xml-data.xml</arg>
-<doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20220217 22:40:49.356" level="INFO" html="true">Getting file '&lt;a href="file://E:\PythonProjects\TestRobot\data\test-xml-data.xml"&gt;E:\PythonProjects\TestRobot\data\test-xml-data.xml&lt;/a&gt;'.</msg>
-<msg timestamp="20220217 22:40:49.356" level="INFO">${file} = &lt;example&gt;
-  &lt;first id="1"&gt;text&lt;/first&gt;
-  &lt;second id="2"&gt;
-    &lt;child/&gt;
-  &lt;/second&gt;
-  &lt;third&gt;
-    &lt;child&gt;more text&lt;/child&gt;
-    &lt;second id="child"/&gt;
-    &lt;child&gt;&lt;grandchild/&gt;&lt;/child&gt;
-  &lt;/third&gt;
-  &lt;html&gt;
- ...</msg>
-<status status="PASS" starttime="20220217 22:40:49.356" endtime="20220217 22:40:49.356"/>
+<test id="s1-t1" name="TC4">
+<kw name="Create List" library="BuiltIn">
+<var>@{list_test}</var>
+<arg>${student.me.name}</arg>
+<arg>${student.her.name}</arg>
+<arg>Hieu</arg>
+<arg>Thu</arg>
+<arg>Thao</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220217 23:05:08.946" level="INFO">@{list_test} = [ Doan Tran Minh Quan | Nguyen Tu Anh Thy | Hieu | Thu | Thao ]</msg>
+<status status="PASS" starttime="20220217 23:05:08.945" endtime="20220217 23:05:08.946"/>
 </kw>
-<kw name="Parse Xml" library="XML">
-<var>${xml_content}</var>
-<arg>${file}</arg>
-<doc>Parses the given XML file or string into an element structure.</doc>
-<msg timestamp="20220217 22:40:49.358" level="INFO">${xml_content} = &lt;Element 'example' at 0x000002240B150040&gt;</msg>
-<status status="PASS" starttime="20220217 22:40:49.357" endtime="20220217 22:40:49.358"/>
+<kw name="My keyword">
+<arg>${list_test}</arg>
+<for flavor="IN">
+<var>${name}</var>
+<value>@{list_name}</value>
+<iter>
+<var name="${name}">Doan Tran Minh Quan</var>
+<kw name="Log" library="BuiltIn">
+<arg>Hi ${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220217 23:05:08.948" level="INFO">Hi Doan Tran Minh Quan</msg>
+<status status="PASS" starttime="20220217 23:05:08.947" endtime="20220217 23:05:08.948"/>
 </kw>
-<kw name="Get Element" library="XML">
-<var>${ele}</var>
-<arg>${xml_content}</arg>
-<arg>xpath=third</arg>
-<doc>Returns an element in the ``source`` matching the ``xpath``.</doc>
-<msg timestamp="20220217 22:40:49.359" level="INFO">${ele} = &lt;Element 'third' at 0x000002240B150180&gt;</msg>
-<status status="PASS" starttime="20220217 22:40:49.359" endtime="20220217 22:40:49.359"/>
+<status status="PASS" starttime="20220217 23:05:08.947" endtime="20220217 23:05:08.948"/>
+</iter>
+<iter>
+<var name="${name}">Nguyen Tu Anh Thy</var>
+<kw name="Log" library="BuiltIn">
+<arg>Hi ${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220217 23:05:08.948" level="INFO">Hi Nguyen Tu Anh Thy</msg>
+<status status="PASS" starttime="20220217 23:05:08.948" endtime="20220217 23:05:08.948"/>
 </kw>
-<kw name="Execute Manual Step" library="Dialogs">
-<arg>Stop at this time</arg>
-<doc>Pauses test execution until user sets the keyword status.</doc>
-<msg timestamp="20220217 22:41:12.785" level="FAIL">it shouldn't stop at this</msg>
-<status status="FAIL" starttime="20220217 22:40:49.360" endtime="20220217 22:41:12.785"/>
+<status status="PASS" starttime="20220217 23:05:08.948" endtime="20220217 23:05:08.948"/>
+</iter>
+<iter>
+<var name="${name}">Hieu</var>
+<kw name="Log" library="BuiltIn">
+<arg>Hi ${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220217 23:05:08.948" level="INFO">Hi Hieu</msg>
+<status status="PASS" starttime="20220217 23:05:08.948" endtime="20220217 23:05:08.948"/>
 </kw>
-<kw name="Log Element" library="XML">
-<arg>${ele}</arg>
-<doc>Logs the string representation of the specified element.</doc>
-<status status="NOT RUN" starttime="20220217 22:41:12.790" endtime="20220217 22:41:12.790"/>
+<status status="PASS" starttime="20220217 23:05:08.948" endtime="20220217 23:05:08.948"/>
+</iter>
+<iter>
+<var name="${name}">Thu</var>
+<kw name="Log" library="BuiltIn">
+<arg>Hi ${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220217 23:05:08.949" level="INFO">Hi Thu</msg>
+<status status="PASS" starttime="20220217 23:05:08.949" endtime="20220217 23:05:08.949"/>
 </kw>
-<tag>Test_Xml</tag>
-<status status="FAIL" starttime="20220217 22:40:49.355" endtime="20220217 22:41:12.791">it shouldn't stop at this</status>
+<status status="PASS" starttime="20220217 23:05:08.949" endtime="20220217 23:05:08.949"/>
+</iter>
+<iter>
+<var name="${name}">Thao</var>
+<kw name="Log" library="BuiltIn">
+<arg>Hi ${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220217 23:05:08.949" level="INFO">Hi Thao</msg>
+<status status="PASS" starttime="20220217 23:05:08.949" endtime="20220217 23:05:08.949"/>
+</kw>
+<status status="PASS" starttime="20220217 23:05:08.949" endtime="20220217 23:05:08.949"/>
+</iter>
+<status status="PASS" starttime="20220217 23:05:08.947" endtime="20220217 23:05:08.949"/>
+</for>
+<status status="PASS" starttime="20220217 23:05:08.947" endtime="20220217 23:05:08.950"/>
+</kw>
+<doc>Test keyword for this test case</doc>
+<tag>Test_list_keyword</tag>
+<status status="PASS" starttime="20220217 23:05:08.944" endtime="20220217 23:05:08.950"/>
 </test>
-<status status="FAIL" starttime="20220217 22:40:49.190" endtime="20220217 22:41:12.797"/>
+<status status="PASS" starttime="20220217 23:05:08.879" endtime="20220217 23:05:08.952"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Test_Xml</stat>
+<stat pass="1" fail="0" skip="0">Test_list_keyword</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="testRb">testRb</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="testRb">testRb</stat>
 </suite>
 </statistics>
 <errors>

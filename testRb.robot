@@ -30,7 +30,13 @@ TC4
     [Tags]    Test_list_keyword
     [Documentation]    Test keyword for this test case
     @{list_test}   Create List    ${student.me.name}    ${student.her.name}  Hieu   Thu   Thao
-    My keyword    ${list_test}
+    ${len}=  Get Length    ${list_test}
+    Pass Execution If     ${len}==5     list is enough, no need to log
+    Wait Until Keyword Succeeds    1 sec    1 sec    Run Keyword
+    ...                            My Keyword    ${list_test}
+
+
+
 *** Keywords ***
 My keyword
     [Arguments]     ${list_name}
